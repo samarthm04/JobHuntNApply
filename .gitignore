@@ -1,2 +1,4 @@
 # /hunter keeps your resume, contact details and application packets here
-.hunter/
+.hunter/*
+# ...except the career-site reader, which holds no personal data
+!.hunter/tools/
