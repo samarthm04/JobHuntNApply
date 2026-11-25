@@ -2,3 +2,5 @@
 .hunter/*
 # ...except the career-site reader, which holds no personal data
 !.hunter/tools/
+.hunter/tools/node_modules/
+.hunter/tools/package*.json
