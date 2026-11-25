@@ -84,7 +84,7 @@ const PAGE = {
       const jobs = await page.evaluate(() => (window.phApp && phApp.ddo.eagerLoadRefineSearch && phApp.ddo.eagerLoadRefineSearch.data.jobs) || []);
       out.push(...jobs.filter(j => isIndia(JSON.stringify(j.multi_location || j.location) + ' ' + j.country)).map(j => ({
         title: j.title, location: (j.multi_location || [j.location]).join('; '), posted: (j.postedDate || '').slice(0, 10),
-        url: `https://careers.bcg.com/global/en/job/${j.jobSeqNo}` })));
+        url: `https://careers.bcg.com/global/en/job/${j.jobId}` })));
     }
     return out;
   },
