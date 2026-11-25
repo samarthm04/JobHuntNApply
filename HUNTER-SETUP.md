@@ -49,7 +49,7 @@ You should see your Amazon and GitLab rows. After that, the usual commands work:
 1. Install the Claude in Chrome extension and connect it to the Claude desktop app (the extension walks you through it).
 2. Log in to the job site yourself (create the amazon.jobs account yourself; Claude never enters passwords).
 3. Open the application page and ask, for example:
-   > Fill this application from `.hunter/jobs/2026-11-25-gitlab-applied-ai-engineer/PACKET.md`. Attach RESUME.pdf and COVER-LETTER.pdf from the same folder. Stop before submitting.
+   > Fill this application from `.hunter/jobs/2026-11-25-gitlab-applied-ai-engineer/PACKET.md`. Attach Samarth_Madhivanan_Resume_GitLab.pdf and Samarth_Madhivanan_Cover_Letter_GitLab.pdf from the same folder. Stop before submitting.
 4. Check every field, especially dropdowns and written answers, then press **Submit** yourself.
 5. Tell Claude `/hunter applied <number>` so the log stays current.
 
