@@ -5,7 +5,9 @@
 
 const { chromium } = require('playwright');
 
-const KEYWORDS = ['machine learning', 'generative AI', 'AI engineer', 'data scientist', 'computer vision'];
+// Override with HUNTER_KEYWORDS="product manager,analyst" to search other roles.
+const KEYWORDS = process.env.HUNTER_KEYWORDS ? process.env.HUNTER_KEYWORDS.split(',').map(k => k.trim()).filter(Boolean)
+  : ['machine learning', 'generative AI', 'AI engineer', 'data scientist', 'computer vision'];
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130 Safari/537.36';
 const q = encodeURIComponent;
 const isIndia = s => /india|\bIN\b|mumbai|pune|hyderabad|bengaluru|bangalore|gurugram|gurgaon|noida|delhi|chennai|kolkata|kochi|trivandrum|ahmedabad/i.test(s || '');
@@ -78,7 +80,7 @@ const PAGE = {
     // BCG India has few roles, so search it broadly; the scorers do the narrowing.
     if (kw !== KEYWORDS[0]) return [];
     const out = [];
-    for (kw of ['data', 'AI', 'analytics', 'engineer', 'technology']) {
+    for (kw of (process.env.HUNTER_KEYWORDS ? KEYWORDS : ['data', 'AI', 'analytics', 'engineer', 'technology'])) {
       // One page per keyword: BCG drops the country filter on paged URLs.
       await page.goto(`https://careers.bcg.com/global/en/search-results?keywords=${q(kw)}&qcountry=India`, { waitUntil: 'networkidle', timeout: 45000 });
       const jobs = await page.evaluate(() => (window.phApp && phApp.ddo.eagerLoadRefineSearch && phApp.ddo.eagerLoadRefineSearch.data.jobs) || []);
